@@ -51,6 +51,10 @@ a:link, a:visited, a:hover, a:active {
   padding-top: 150px;
 }
 
+#notuser > a {
+  color: blue;
+}
+
 .card-header,p{
  display:inline-block;
  vertical-align:top;
@@ -63,3 +67,4 @@ a:link, a:visited, a:hover, a:active {
 .container {
   margin-bottom: 50px;
 }
+
