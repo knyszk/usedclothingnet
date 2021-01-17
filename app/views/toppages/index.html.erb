@@ -1,5 +1,23 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+
+  <div id="post">
+    <div class="col-sm-8">
+      <% current_user.photos.each do |photo| %>
+      <div class="card">
+        <div class="card-header">
+          <p>@<%= current_user.name %></p>
+        </div>
+        <div class="card-body">
+          <div id="img">
+            <%= image_tag(photo.image) if photo.image.attached? %>
+          </div>
+        <p><%= photo.caption %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">

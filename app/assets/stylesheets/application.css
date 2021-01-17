@@ -55,6 +55,10 @@ a:link, a:visited, a:hover, a:active {
   color: blue;
 }
 
+.notuser {
+  margin-top: 15px;
+}
+
 .card-header,p{
  display:inline-block;
  vertical-align:top;
@@ -68,3 +72,12 @@ a:link, a:visited, a:hover, a:active {
   margin-bottom: 50px;
 }
 
+#img > img {
+  width: 500px;
+  height: 500px;
+}
+
+#post {
+  text-align: center;
+  margin: 0 auto; 
+}

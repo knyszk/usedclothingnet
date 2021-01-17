@@ -19,7 +19,8 @@
 
       <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
     <% end %>
-
-    <p id="notuser">未登録の方は <%= link_to '今すぐサインアップ！', signup_path %></p>
+    <div class=notuser>
+      <p id="notuser">未登録の方は<%= link_to 'こちら!', signup_path %></p>
+    </div>
   </div>
 </div>
