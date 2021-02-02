@@ -1,22 +1,13 @@
 <% if logged_in? %>
-
-  <div id="post">
-    <div class="col-sm-8">
-      <% current_user.photos.each do |photo| %>
-      <div class="card">
-        <div class="card-header">
-          <p>@<%= current_user.name %></p>
-        </div>
-        <div class="card-body">
-          <div id="img">
-            <%= image_tag(photo.image) if photo.image.attached? %>
-          </div>
-        <p><%= photo.caption %></p>
-        </div>
-      </div>
-      <% end %>
-    </div>
+<div class="row">
+  <div class="col-sm-2">
   </div>
+  <div class="col-sm-8">
+    <%= render 'photos/photos', photos: @photos %>
+  </div>
+  <div class="col-sm-2">
+  </div>
+</div>
   
 <% else %>
   <div class="center jumbotron">

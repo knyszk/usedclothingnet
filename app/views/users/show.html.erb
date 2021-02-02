@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="left">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= @user.name %></h3>
+          <%= render 'relationships/follow_button', user: @user %>
+          <div id="status">
+            <a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー中  <span><%= @count_followings %></span></a>
+            <a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span><%= @count_followers %></span></a>
+          </div>
+      <p>投稿  <span><%= @count_photos %></span>件</p>
+        </div>
+        <div class="card-body">
+          <div class="profile">
+            <% if current_user == @user %>
+              <%= link_to 'プロフィール編集', edit_user_path %>
+            <% end %>
+            <% if @user.image? %>
+              <img src='<%= @user.image.url %>' class="icon" alt="ユーザーアイコン">
+            <% else %>
+              <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+            <% end %>
+            <div class="card-text">
+              <%= @user.introduction %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div id="right">
+      <%= render 'photos/photos', photos: @photos %>
+    </div>
+  </div>
+</div>

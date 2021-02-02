@@ -1,0 +1,18 @@
+<h3>プロフィール編集</h3>
+<div class="col-sm-6 offset-sm-3">
+  <%= form_with model: @user, local: true do |f| %>
+  <p>プロフィール画像</p>
+    <div class="form-group">
+      <%= f.file_field :image, class: 'form-control-file' %>
+    </div>
+    <p>ユーザーネーム</p>
+    <div class="form-group">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <p>自己紹介文</p>
+    <div class="form-group">
+      <%= f.text_area :introduction, class: 'form-control', wrap: 'hard' %>
+    </div>
+    <%= f.submit '更新' , class: 'btn btn-primary btn-block'%>
+  <% end %>
+</div>

@@ -1,0 +1,183 @@
+@charset "UTF-8";
+header {
+  color: #fff;
+}
+.navbar {
+  z-index: 30;
+  background-color: #622d18;
+  border-style: solid;
+  border-color: #33170c;
+  border-radius: 1%;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+}
+
+.navbar-brand {
+  font-size: 50px;
+  font-family: Impact,Charcoal; 
+}
+
+.navbar-nav {
+   text-align: right;
+}
+
+.nav-item {
+  display: inline;
+}
+
+.container{
+    z-index: 10;
+    min-height: 100vh;
+    position: relative;
+}
+
+footer {
+  z-index: 20;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  background-color: #622d18;
+  border-style: solid;
+  border-color: #33170c;
+  border-radius: 1%;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+/*footer,p {*/
+/*  margin: 0px;*/
+/*}*/
+
+a:link, a:visited, a:hover, a:active {
+  color: #fff;
+}
+
+#main {
+  text-align: center;
+  padding-top: 150px;
+}
+
+#notuser > a {
+  color: blue;
+}
+
+.notuser {
+  margin-top: 15px;
+}
+
+.card-header,p{
+ display:inline-block;
+ vertical-align:top;
+}
+
+
+.container {
+  margin-bottom: 50px;
+}
+
+#img > img {
+  width: 500px;
+}
+
+#post {
+  text-align: center;
+  margin: 0 auto; 
+}
+
+#status{
+  display: flex;
+  text-align: center;
+}
+
+#status > a{
+  color: black;
+}
+
+.left {
+  position: fixed;
+  width: 293px;
+}
+
+.right {
+  position: relative; 
+  left: 1200px;
+}
+
+.card-header > p > a {
+  color: black;
+}
+
+.card-body > .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile > a {
+  color: gray;
+}
+.card {
+  /*margin-bottom: 50px;*/
+  word-wrap: break-word;
+  
+}
+
+.card p {
+  margin-top: 15px;
+}
+
+#username  a{
+  color: black;
+  font-size: 20px;
+  font-family: Impact,Charcoal;
+}
+
+.card-title {
+  font-family: Impact,Charcoal;
+}
+
+.user_small {
+  display: flex;
+}
+
+.user_small > img{
+  width: 50px;
+  height: 50px;
+}
+
+
+/*{*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+.card-header > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#icon > a > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #fff;
+}
+
+.icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.left > .card {
+  margin-top: 0px;
+}
+
+.card-text {
+  margin-top: 10px;
+}

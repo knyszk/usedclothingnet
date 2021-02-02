@@ -1,0 +1,29 @@
+<div id="post">
+  <% photos.each do |photo| %>
+    <div class="card">
+      <div class="card-header">
+        <% if photo.user.image? %>
+          <img src='<%= photo.user.image.url %>' class="icon" alt="ユーザーアイコン">
+        <% else %>
+          <image src="/assets/default.png" class="icon" alt="デフォルトアイコン" %>
+        <% end %>
+        <p>@<%= link_to photo.user.name, user_path(photo.user) %></p>
+      </div>
+      <div class="card-body">
+        <div id="img">
+          <%= image_tag(photo.image) if photo.image.attached? %>
+        </div>
+        <i class="fas fa-comment fa-lg fa-pull-right"></i>
+        <i class="fas fa-heart fa-lg fa-pull-right"></i>
+      </div>
+      <p class="card-text"><%=simple_format(photo.caption)%></p>
+      <td><%= l photo.created_at, format: :short %></td>
+        <% if current_user == photo.user %>
+          <%= link_to "削除", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
+        <% end %>
+      </div>
+      <div>
+      </div>
+    </div>
+  <% end %>
+</div>
