@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="left-2">
+      <div class="card">
+        <div class="card-header">
+          <% if @photo.user.image? %>
+            <img src='<%= @photo.user.image.url %>' class="icon" alt="ユーザーアイコン">
+          <% else %>
+            <image src="/assets/default.png" class="icon" alt="デフォルトアイコン" %>
+          <% end %>
+          <p>@<%= link_to @photo.user.name , user_path(@photo.user) %></p>
+        </div>
+        <div class="card-body">
+          <div id="img">
+            <%= image_tag(@photo.image) if @photo.image.attached? %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div id="right-2">
+      <div class="comment-form">
+        <%= form_with(model: [@photo, @comment], local: true) do |f| %>
+          <%= f.text_area :content, class: "form-control" %>
+          <div class="comment-button">
+            <%= button_tag type: "submit", class: "btn float-right mt-1" do %>
+              <i class="fas fa-comment size"></i> コメントする
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="photo-content">
+        <div class="card">
+          <div class="card-header">
+              <% if @photo.user.image? %>
+                <img src='<%= @photo.user.image.url %>' class="icon" alt="ユーザーアイコン">
+              <% else %>
+                <img src="/assets/default.png" class="icon" alt="デフォルトアイコン" %>
+              <% end %>
+              <p><%= link_to @photo.user.name , user_path(@photo.user) %></p>
+              <br/>
+              <div class="post-text">
+                <p><%= simple_format(@photo.caption)%></p>
+              </div>
+          </div>
+        </div>
+      </div>
+        <% @comments.each do |c| %>
+          <% unless c.user.blank? %>
+            <div class="card">
+              <div class="card-header"> 
+                <div class="comment">
+                  <% if c.user.image? %>
+                    <a href="<%= user_path(c.user_id) %>"><%= image_tag c.user.image.to_s,size: '40x40',class:"rounded-circle icon_image mr-3 mb-3"%></a>
+                  <% else %>
+                    <img src="/assets/default.png" class="icon"  alt="デフォルトアイコン" %>
+                  <% end %>
+                  <p id="username-2"><a href="/users/<%= c.user_id %>"><%= c.user.name unless c.user.blank? %></a>:</p>
+                  <p><%= simple_format(c.content) %></p>
+                  <% if current_user == c.user %>
+                    <%= link_to "削除", photo_comment_path(@photo, c), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+  </div>
+</div>

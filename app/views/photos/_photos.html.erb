@@ -13,16 +13,18 @@
         <div id="img">
           <%= image_tag(photo.image) if photo.image.attached? %>
         </div>
-        <i class="fas fa-comment fa-lg fa-pull-right"></i>
-        <i class="fas fa-heart fa-lg fa-pull-right"></i>
-      </div>
-      <p class="card-text"><%=simple_format(photo.caption)%></p>
-      <td><%= l photo.created_at, format: :short %></td>
-        <% if current_user == photo.user %>
-          <%= link_to "削除", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
+        <%= link_to photo_path(photo),:method => :get do %>
+          <i class="fas fa-comment fa-lg size" data-fa-transform="right-170"></i>
         <% end %>
-      </div>
-      <div>
+        <div class="post-text">
+          <p class="card-text"><%= simple_format(photo.caption)%></p>
+        </div>
+        <div>
+          <td><%= l photo.created_at, format: :short %></td>
+          <% if current_user == photo.user %>
+            <%= link_to "削除", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

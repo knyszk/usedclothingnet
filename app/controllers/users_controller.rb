@@ -40,17 +40,12 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find_by(id: params[:id])
-    # @user = current_user.image_name.find_by(id: params[:id])
   end
   
   def update
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
-    # if @user.update
       redirect_to user_path(@user)
-    # else
-    #   render:edit
-    # end
   end
   
   def search

@@ -1,14 +1,13 @@
 <% if logged_in? %>
-<div class="row">
-  <div class="col-sm-2">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <%= render 'photos/photos', photos: @photos %>
+    </div>
+    <div class="col-sm-2">
+    </div>
   </div>
-  <div class="col-sm-8">
-    <%= render 'photos/photos', photos: @photos %>
-  </div>
-  <div class="col-sm-2">
-  </div>
-</div>
-  
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">

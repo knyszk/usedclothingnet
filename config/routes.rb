@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
   resources :users do
+    get :favorites, on: :collection
     member do
       get :followings
       get :followers
@@ -23,8 +24,8 @@ Rails.application.routes.draw do
   end
   
   resources :photos do
-    post 'add' => 'likes#create'
-    delete '/add' => 'likes#destroy'
+    # resources :favorites, only: [:create, :destroy, :index]
+    resources :comments, only: [:create ,:destroy]
   end
   
   resources :relationships, only: [:create, :destroy]

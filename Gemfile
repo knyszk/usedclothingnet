@@ -56,3 +56,6 @@ gem 'image_processing', '~>1.2'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
+gem "haml-rails"
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
