@@ -9,7 +9,7 @@
             <a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー中  <span><%= @count_followings %></span></a>
             <a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span><%= @count_followers %></span></a>
           </div>
-        <p>投稿  <span><%= @count_photos %></span>件</p>
+          <p>投稿  <span><%= @count_photos %></span>件</p>
         </div>
         <div class="card-body">
           <div class="profile">

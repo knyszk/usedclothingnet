@@ -6,15 +6,12 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :introduction, presence: false, length: { maximum: 110 }
   has_secure_password
-
   has_many :photos
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverses_of_relationship, source: :user
   has_many :comments
-  # has_many :favorites, dependent: :destroy
-  
   mount_uploader :image, ImageUploader
   
   def follow(other_user)

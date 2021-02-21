@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 header {
   color: #fff;
 }
@@ -117,7 +118,6 @@ a:link, a:visited, a:hover, a:active {
   color: gray;
 }
 .card {
-  /*margin-bottom: 50px;*/
   word-wrap: break-word;
   
 }
@@ -213,6 +213,7 @@ a:link, a:visited, a:hover, a:active {
 .photo-content > .card > .card-header {
   float: lef;
 }
+
 #username-2  a {
   color: black;
 }
@@ -221,7 +222,6 @@ a:link, a:visited, a:hover, a:active {
   width: 40px;
   height: 40px;
 }
-
 
 .card {
   border-style: solid;

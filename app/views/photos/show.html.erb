@@ -46,25 +46,26 @@
           </div>
         </div>
       </div>
-        <% @comments.each do |c| %>
-          <% unless c.user.blank? %>
-            <div class="card">
-              <div class="card-header"> 
-                <div class="comment">
-                  <% if c.user.image? %>
-                    <a href="<%= user_path(c.user_id) %>"><%= image_tag c.user.image.to_s,size: '40x40',class:"rounded-circle icon_image mr-3 mb-3"%></a>
-                  <% else %>
-                    <img src="/assets/default.png" class="icon"  alt="デフォルトアイコン" %>
-                  <% end %>
-                  <p id="username-2"><a href="/users/<%= c.user_id %>"><%= c.user.name unless c.user.blank? %></a>:</p>
-                  <p><%= simple_format(c.content) %></p>
-                  <% if current_user == c.user %>
-                    <%= link_to "削除", photo_comment_path(@photo, c), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
-                  <% end %>
-                </div>
+      <% @comments.each do |c| %>
+        <% unless c.user.blank? %>
+          <div class="card">
+            <div class="card-header"> 
+              <div class="comment">
+                <% if c.user.image? %>
+                  <a href="<%= user_path(c.user_id) %>"><%= image_tag c.user.image.to_s,size: '40x40',class:"rounded-circle icon_image mr-3 mb-3"%></a>
+                <% else %>
+                  <img src="/assets/default.png" class="icon"  alt="デフォルトアイコン" %>
+                <% end %>
+                <p id="username-2"><a href="/users/<%= c.user_id %>"><%= c.user.name unless c.user.blank? %></a>:</p>
+                <p><%= simple_format(c.content) %></p>
+                <% if current_user == c.user %>
+                  <%= link_to "削除", photo_comment_path(@photo, c), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-light btn-sm' %>
+                <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
